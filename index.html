@@ -29,6 +29,8 @@
   <link rel="stylesheet" href="css/proyectos.css">
   <link rel="stylesheet" href="css/spaces.css">
   <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/bottombar.css">
+  <link rel="stylesheet" href="css/claude-assistant.css">
 
   <style>
     /* Inline critical: font fallback while Geist loads */
@@ -196,43 +198,36 @@
     </div>
   </aside>
 
-  <!-- OS Main -->
+  <!-- Main content -->
   <main class="os-main">
-
-    <!-- OS Page: Home -->
-    <div id="os-page-os-home" class="os-page">
+    <!-- OS Home -->
+    <div id="os-page-os-home" class="os-page active">
       <div class="home-greeting">
-        <div class="htime" id="os-htime">00:00</div>
-        <h1 id="os-greeting">Buenos días</h1>
+        <div class="htime" id="os-htime"></div>
+        <h1 id="os-greeting"></h1>
         <div class="hphrase" id="os-hphrase"></div>
       </div>
 
+      <!-- Stats -->
       <div class="wgrid">
-        <!-- Stats widget -->
         <div class="widget">
-          <div class="wtitle">Resumen</div>
+          <div class="wtitle">Hoy</div>
           <div class="mstat">
+            <span class="mstat-lbl">Tareas</span>
             <span class="mstat-num" id="os-stat-planner">—</span>
-            <span class="mstat-lbl">tareas hoy</span>
           </div>
           <div class="mstat">
+            <span class="mstat-lbl">Inbox</span>
             <span class="mstat-num" id="os-stat-inbox">—</span>
-            <span class="mstat-lbl">inbox</span>
           </div>
           <div class="mstat">
+            <span class="mstat-lbl">Proyectos</span>
             <span class="mstat-num" id="os-stat-proyectos">—</span>
-            <span class="mstat-lbl">proyectos</span>
           </div>
         </div>
 
-        <!-- Inbox widget -->
-        <div class="widget">
-          <div class="wtitle">Inbox reciente</div>
-          <div class="wscroll" id="os-inbox-widget"></div>
-        </div>
-
-        <!-- Mini calendar widget -->
         <div class="widget widget-tall">
+          <div class="wtitle">Calendario</div>
           <div class="mini-cal-header">
             <button class="cal-nav-btn" id="os-cal-prev">‹</button>
             <span class="mini-cal-title" id="os-mini-cal-title"></span>
@@ -241,109 +236,58 @@
           <div class="cal-grid7" id="os-mini-cal-grid"></div>
         </div>
 
-        <!-- Proyectos widget -->
         <div class="widget">
-          <div class="wtitle">Proyectos activos</div>
-          <div class="wscroll" id="os-proyectos-widget"></div>
+          <div class="wtitle">Inbox</div>
+          <div id="os-inbox-widget" class="wscroll"></div>
+        </div>
+
+        <div class="widget">
+          <div class="wtitle">Proyectos</div>
+          <div id="os-proyectos-widget" class="wscroll"></div>
         </div>
       </div>
     </div>
 
-    <!-- OS Page: Planner -->
-    <div id="os-page-planner" class="os-page">
-      <!-- Day header -->
-      <div class="day-header">
-        <div class="day-nav">
-          <button class="pnav-btn" id="planner-prev">←</button>
-          <button class="pnav-btn pnav-today" id="planner-today">hoy</button>
-          <button class="pnav-btn" id="planner-next">→</button>
-        </div>
-        <h2 class="planner-day-title" id="planner-day-title">Hoy</h2>
-        <div class="planner-day-sub" id="planner-day-sub"></div>
-      </div>
-      <!-- Week strip -->
-      <div class="week-strip" id="planner-week-strip"></div>
-      <!-- Day summary -->
-      <div class="day-summary">
-        <div class="ds-stat">
-          <span id="planner-total" class="ds-num">—</span>
-          <span class="ds-lbl">total</span>
-        </div>
-        <div class="ds-stat">
-          <span id="planner-completados" class="ds-num">—</span>
-          <span class="ds-lbl">hechas</span>
-        </div>
-        <div class="ds-stat">
-          <span id="planner-pendientes" class="ds-num">—</span>
-          <span class="ds-lbl">pendientes</span>
-        </div>
-      </div>
-      <!-- Migrate banner -->
-      <div class="migrate-banner" id="planner-migrate-banner" style="display:none">
-        <span class="migrate-text"></span>
-        <button class="migrate-btn btn-sm">migrar</button>
-      </div>
-      <!-- Blocks -->
-      <div id="planner-block-manana"></div>
-      <div id="planner-block-tarde"></div>
-      <div id="planner-block-noche"></div>
-    </div>
+    <!-- Planner -->
+    <div id="os-page-planner" class="os-page"></div>
 
-    <!-- OS Page: Inbox -->
-    <div id="os-page-inbox" class="os-page">
-      <!-- Populated by inbox.js -->
-    </div>
+    <!-- Inbox -->
+    <div id="os-page-inbox" class="os-page"></div>
 
-    <!-- OS Page: Proyectos -->
-    <div id="os-page-proyectos" class="os-page">
-      <!-- Populated by proyectos.js -->
-    </div>
+    <!-- Proyectos -->
+    <div id="os-page-proyectos" class="os-page"></div>
 
-    <!-- OS Page: Journaling -->
-    <div id="os-page-journaling" class="os-page">
-      <!-- Populated by journaling.js -->
-    </div>
-
+    <!-- Journaling -->
+    <div id="os-page-journaling" class="os-page"></div>
   </main>
 
-  <!-- FAB: capture global -->
-  <button class="fab" id="fab" title="Capturar idea">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
-      <line x1="12" y1="5" x2="12" y2="19"/>
-      <line x1="5" y1="12" x2="19" y2="12"/>
-    </svg>
-  </button>
-
-  <!-- FAB Capture Modal -->
-  <div class="modal-backdrop" id="fab-modal">
-    <div class="modal" style="max-width:400px">
-      <div class="modal-head">
-        <span>Captura rápida</span>
-        <button class="modal-close" id="fab-modal-close">×</button>
-      </div>
-      <div style="padding:20px;display:flex;flex-direction:column;gap:12px">
-        <textarea class="form-input" id="fab-text" placeholder="Captura algo… idea, tarea, nota…" rows="3" style="resize:vertical"></textarea>
-        <div style="display:flex;gap:8px;flex-wrap:wrap">
-          <select class="form-input" id="fab-type" style="flex:1">
-            <option value="task">tarea</option>
-            <option value="note">nota</option>
-            <option value="idea">idea</option>
-            <option value="reference">referencia</option>
-          </select>
-          <select class="form-input" id="fab-prio" style="flex:1">
-            <option value="">— prioridad</option>
-            <option value="alta">alta</option>
-            <option value="media">media</option>
-            <option value="baja">baja</option>
-          </select>
-        </div>
-        <div style="display:flex;justify-content:flex-end;gap:8px">
-          <button class="btn-sm" id="fab-to-inbox">→ Inbox</button>
-          <button class="btn-sm" id="fab-to-planner">→ Planner</button>
-        </div>
+  <!-- FAB -->
+  <div class="fab-overlay" id="fab-modal">
+    <div class="fab-modal">
+      <div class="fab-modal-title">Captura rápida</div>
+      <textarea class="fab-textarea" id="fab-text" placeholder="¿Qué tienes en mente?…" rows="3"></textarea>
+      <div class="fab-dest-label">Tipo</div>
+      <select class="fab-type-btn" id="fab-type">
+        <option value="task">Tarea</option>
+        <option value="note">Nota</option>
+        <option value="idea">Idea</option>
+      </select>
+      <div class="fab-dest-label">Prioridad</div>
+      <select class="fab-type-btn" id="fab-prio">
+        <option value="">Sin prioridad</option>
+        <option value="alta">Alta</option>
+        <option value="media">Media</option>
+        <option value="baja">Baja</option>
+      </select>
+      <div class="fab-dest-label">Destino</div>
+      <div class="fab-dest-grid">
+        <button class="fab-dest-btn" id="fab-to-inbox">📥 Inbox</button>
+        <button class="fab-dest-btn" id="fab-to-planner">→ Planner</button>
       </div>
     </div>
   </div>
+
+  <button class="fab" id="fab" title="Captura rápida (Ctrl+Space)">+</button>
 
 </div><!-- /view-os -->
 
@@ -465,70 +409,15 @@
 <script src="js/spaces.js"></script>
 <script src="js/pages.js"></script>
 <script src="js/journaling.js"></script>
+<script src="js/bottombar.js"></script>
+<script src="js/claude-assistant.js"></script>
+
+<!-- JS: Optimizations -->
+<script src="js/lazy-loader.js"></script>
+<script src="js/storage-compression.js"></script>
 
 <!-- JS: app (last) -->
 <script src="js/app.js"></script>
 
-<script data-pplx-inline-edit>
-(function(){
-  if(window===window.top)return;
-  function inlineAll(orig,clone){
-    if(orig.nodeType!==1)return;
-    try{
-      var cs=getComputedStyle(orig);
-      var t='';
-      for(var i=0;i<cs.length;i++){t+=cs[i]+':'+cs.getPropertyValue(cs[i])+';';}
-      clone.style.cssText=t;
-    }catch(e){}
-    var oc=orig.children,cc=clone.children;
-    for(var j=0;j<oc.length&&j<cc.length;j++){inlineAll(oc[j],cc[j]);}
-  }
-  function stripExternal(clone){
-    var imgs=clone.querySelectorAll('img');
-    for(var i=0;i<imgs.length;i++){
-      var s=imgs[i].getAttribute('src');
-      if(s&&!s.startsWith('data:'))imgs[i].removeAttribute('src');
-    }
-    var all=clone.querySelectorAll('*');
-    for(var i=0;i<all.length;i++){
-      var st=all[i].style.cssText;
-      if(st&&st.indexOf('url(')>=0){
-        all[i].style.cssText=st.replace(/url\(["']?(?!data:)[^)"']*["']?\)/gi,'none');
-      }
-    }
-  }
-  window.addEventListener('message',function(e){
-    if(!e.data||e.data.type!=='INLINE_EDIT_CAPTURE_REQUEST')return;
-    var scrollX=window.scrollX||window.pageXOffset||0;
-    var scrollY=window.scrollY||window.pageYOffset||0;
-    var w=window.innerWidth,h=window.innerHeight;
-    try{
-      var clone=document.documentElement.cloneNode(true);
-      var rm=clone.querySelectorAll('script,link[rel="stylesheet"],style');
-      for(var i=0;i<rm.length;i++){rm[i].remove();}
-      inlineAll(document.documentElement,clone);
-      stripExternal(clone);
-      var html=new XMLSerializer().serializeToString(clone);
-      var svg='<svg xmlns="http://www.w3.org/2000/svg" width="'+w+'" height="'+h+'">'
-        +'<foreignObject width="100%" height="100%">'
-        +'<div xmlns="http://www.w3.org/1999/xhtml" style="width:'+w+'px;height:'+h+'px;overflow:hidden">'
-        +'<div style="transform:translate(-'+scrollX+'px,-'+scrollY+'px);transform-origin:top left">'
-        +html+'</div></div></foreignObject></svg>';
-      var svgUrl='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg);
-      var img=new Image();
-      img.onload=function(){
-        var c=document.createElement('canvas');c.width=w;c.height=h;
-        c.getContext('2d').drawImage(img,0,0);
-        window.parent.postMessage({type:'INLINE_EDIT_SCREENSHOT_RESULT',dataUrl:c.toDataURL('image/png'),scrollX:scrollX,scrollY:scrollY},'*');
-      };
-      img.onerror=function(){
-        window.parent.postMessage({type:'INLINE_EDIT_SCREENSHOT_RESULT',dataUrl:null,scrollX:scrollX,scrollY:scrollY},'*');
-      };
-      img.src=svgUrl;
-    }catch(err){
-      window.parent.postMessage({type:'INLINE_EDIT_SCREENSHOT_RESULT',dataUrl:null,scrollX:scrollX,scrollY:scrollY},'*');
-    }
-  });
-})();
-</script></body>
+</body>
 </html>
