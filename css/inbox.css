@@ -1,0 +1,399 @@
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   ANDINET V2 — inbox.css
+   Vista Inbox dentro del OS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* ── Capture Card ─────────────────────────────────────── */
+
+.ibx-page-capture {
+  background: var(--s1);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.ibx-capture-input {
+  width: 100%;
+  background: var(--s2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 14px;
+  padding: 12px;
+  outline: none;
+  resize: none;
+  min-height: 60px;
+  line-height: 1.5;
+  transition: border-color 0.15s var(--ease);
+}
+
+.ibx-capture-input:focus {
+  border-color: var(--grape);
+}
+
+.ibx-capture-meta {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.ibx-type-sel,
+.ibx-prio-sel,
+.ibx-area-sel {
+  background: var(--s2);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 11px;
+  padding: 5px 8px;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.15s var(--ease);
+}
+
+.ibx-type-sel:focus,
+.ibx-prio-sel:focus,
+.ibx-area-sel:focus {
+  border-color: var(--border2);
+}
+
+.ibx-area-sel {
+  flex: 1;
+}
+
+.ibx-capture-btn {
+  background: var(--grape);
+  border: none;
+  border-radius: 8px;
+  color: #0a0a0a;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  padding: 7px 18px;
+  cursor: pointer;
+  margin-left: auto;
+  transition: background 0.15s var(--ease), transform 0.1s var(--ease);
+  letter-spacing: 0.06em;
+}
+
+.ibx-capture-btn:hover {
+  background: var(--grape2);
+}
+
+.ibx-capture-btn:active {
+  transform: scale(0.97);
+}
+
+/* ── Status Tabs ─────────────────────────────────────── */
+
+.ibx-status-tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 14px;
+  background: var(--s2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 4px;
+}
+
+.ibx-stab {
+  flex: 1;
+  background: none;
+  border: none;
+  border-radius: 7px;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 7px 4px;
+  cursor: pointer;
+  text-align: center;
+  transition: background 0.15s var(--ease), color 0.15s var(--ease), border-color 0.15s var(--ease);
+}
+
+.ibx-stab.active {
+  background: var(--s3);
+  color: var(--grape2);
+  border: 1px solid var(--border);
+}
+
+/* ── Filter Bar ──────────────────────────────────────── */
+
+.ibx-filters-bar {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+
+.ibx-fil {
+  background: var(--s2);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  color: var(--muted);
+  font-size: 11px;
+  font-family: var(--mono);
+  padding: 4px 12px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.15s var(--ease), border-color 0.15s var(--ease), background 0.15s var(--ease);
+}
+
+.ibx-fil:hover {
+  color: var(--text);
+}
+
+.ibx-fil.active {
+  border-color: var(--grape);
+  color: var(--grape2);
+  background: var(--s3);
+}
+
+/* ── Item ────────────────────────────────────────────── */
+
+.ibx-item {
+  background: var(--s2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin-bottom: 8px;
+  overflow: hidden;
+  transition: border-color 0.15s var(--ease);
+  animation: fadeIn 0.18s var(--ease) both;
+}
+
+.ibx-item.done {
+  opacity: 0.5;
+}
+
+.ibx-item-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 13px 14px 10px;
+}
+
+.ibx-item-check {
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--border2);
+  border-radius: 5px;
+  cursor: pointer;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  color: transparent;
+  margin-top: 1px;
+  transition: background 0.15s var(--ease), border-color 0.15s var(--ease), color 0.15s var(--ease);
+}
+
+.ibx-item-check:hover {
+  border-color: var(--border3);
+}
+
+.ibx-item-check.done {
+  background: var(--green);
+  border-color: var(--green);
+  color: #0a0a0a;
+}
+
+.ibx-item-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.ibx-item-text {
+  font-size: 13px;
+  line-height: 1.5;
+  margin-bottom: 6px;
+  word-break: break-word;
+}
+
+.ibx-item-text.done {
+  text-decoration: line-through;
+  color: var(--muted);
+}
+
+.ibx-item-tags {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.idate-badge {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--muted);
+}
+
+.ibx-type-badge {
+  font-family: var(--mono);
+  font-size: 9px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  color: var(--muted2);
+}
+
+.ibx-prio-badge {
+  font-family: var(--mono);
+  font-size: 9px;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.ibx-prio-badge.alta  { border: 1px solid var(--red);   color: var(--red); }
+.ibx-prio-badge.media { border: 1px solid var(--amber);  color: var(--amber); }
+.ibx-prio-badge.baja  { border: 1px solid var(--muted2); color: var(--muted2); }
+
+.ibx-area-badge {
+  font-family: var(--mono);
+  font-size: 9px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  color: var(--muted2);
+}
+
+.ibx-item-toggle,
+.ibx-item-del {
+  background: none;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 12px;
+  padding: 4px 6px;
+  flex-shrink: 0;
+  transition: color 0.15s var(--ease);
+}
+
+.ibx-item-del:hover {
+  color: var(--red);
+}
+
+.ibx-item-toggle:hover {
+  color: var(--text);
+}
+
+/* ── Item Actions (expandible) ───────────────────────── */
+
+.ibx-item-actions {
+  display: none;
+  padding: 0 14px 14px;
+  border-top: 1px solid var(--border);
+}
+
+.ibx-item-actions.open {
+  display: block;
+}
+
+.ibx-note-area {
+  width: 100%;
+  background: var(--s1);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  color: var(--text);
+  font-size: 12px;
+  padding: 9px;
+  resize: none;
+  min-height: 56px;
+  outline: none;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  line-height: 1.5;
+  transition: border-color 0.15s var(--ease);
+}
+
+.ibx-note-area:focus {
+  border-color: var(--blue);
+}
+
+.ibx-act-row {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.ibx-act-btn {
+  background: var(--s1);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 10px;
+  padding: 6px 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: border-color 0.15s var(--ease), color 0.15s var(--ease), background 0.15s var(--ease);
+}
+
+.ibx-act-btn:hover {
+  background: var(--s2);
+}
+
+.ibx-act-btn.to-planner {
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
+.ibx-act-btn.to-proyecto {
+  border-color: var(--grape2);
+  color: var(--grape2);
+}
+
+.ibx-act-btn.to-referencia {
+  border-color: var(--muted2);
+  color: var(--muted2);
+}
+
+.ibx-act-btn.archivar {
+  border-color: var(--border2);
+  color: var(--muted2);
+}
+
+/* ── Destination Picker ──────────────────────────────── */
+
+.ibx-dest-pick {
+  background: var(--s1);
+  border: 1px solid var(--amber);
+  border-radius: 7px;
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 10px;
+  padding: 6px 8px;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.15s var(--ease);
+}
+
+.ibx-dest-pick:focus {
+  border-color: var(--grape2);
+}
+
+/* ── Empty State ─────────────────────────────────────── */
+
+.ibx-empty {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.ibx-empty-glyph {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 12px;
+  opacity: 0.4;
+}

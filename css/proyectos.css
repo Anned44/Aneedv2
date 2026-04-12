@@ -1,0 +1,427 @@
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   ANDINET V2 — proyectos.css
+   Cards, Kanban, Vista de proyecto
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* ── Header ── */
+.proy-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.proy-header h2 {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  color: var(--text2);
+  flex: 1;
+}
+
+/* ── Filters Row ── */
+.proy-filters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.proy-fil {
+  background: none;
+  border: 1px solid var(--border2);
+  color: var(--muted2);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: .75rem;
+  font-family: var(--mono);
+  cursor: pointer;
+  transition: all .2s;
+}
+.proy-fil:hover { border-color: var(--border3); color: var(--text); }
+.proy-fil.active { background: var(--grape); border-color: var(--grape); color: #fff; }
+
+/* ── Cards Grid ── */
+.proy-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.proy-card {
+  background: var(--s2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px 20px;
+  cursor: pointer;
+  transition: border-color .2s, transform .2s;
+  position: relative;
+  overflow: hidden;
+}
+.proy-card:hover {
+  border-color: var(--border3);
+  transform: translateY(-2px);
+}
+.proy-card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: var(--card-color, var(--grape));
+  border-radius: 12px 0 0 12px;
+}
+
+.proy-card-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.proy-card-emoji {
+  font-size: 1.4rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.proy-card-meta {
+  flex: 1;
+  min-width: 0;
+}
+.proy-card-title {
+  font-family: var(--serif);
+  font-size: 1.05rem;
+  color: var(--text2);
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.proy-card-desc {
+  font-size: .78rem;
+  color: var(--muted2);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Status badge */
+.proy-status {
+  font-size: .65rem;
+  font-family: var(--mono);
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: var(--s3);
+  color: var(--muted2);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.proy-status.activo   { background: rgba(90,170,100,.15); color: #7acc8a; }
+.proy-status.nuevo    { background: rgba(122,92,154,.15); color: var(--grape3); }
+.proy-status.pausa    { background: rgba(200,150,90,.15); color: #c8a06a; }
+.proy-status.completo { background: rgba(90,122,170,.15); color: #8aaad0; }
+
+/* Progress bar */
+.proy-pbar-wrap {
+  height: 3px;
+  background: var(--s3);
+  border-radius: 2px;
+  margin-top: 12px;
+}
+.proy-pbar {
+  height: 100%;
+  border-radius: 2px;
+  background: var(--card-color, var(--grape));
+  transition: width .3s;
+}
+
+/* Card tags */
+.proy-card-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+.proy-tag {
+  font-size: .65rem;
+  font-family: var(--mono);
+  padding: 1px 7px;
+  border-radius: 8px;
+  background: var(--s3);
+  color: var(--muted2);
+}
+
+/* ── Área badges ── */
+.proy-area-badge {
+  font-size: .65rem;
+  font-family: var(--mono);
+  padding: 1px 7px;
+  border-radius: 8px;
+  background: var(--s3);
+  color: var(--muted2);
+  margin-top: 6px;
+  display: inline-block;
+}
+.proy-area-badge.estudio  { color: var(--estudio); }
+.proy-area-badge.creacion { color: var(--creacion); }
+.proy-area-badge.mundo    { color: var(--mundo); }
+.proy-area-badge.love     { color: var(--love); }
+
+/* ── Nuevo proyecto button ── */
+.proy-new-btn {
+  background: none;
+  border: 1px dashed var(--border2);
+  border-radius: 12px;
+  padding: 18px 20px;
+  color: var(--muted2);
+  cursor: pointer;
+  font-family: var(--mono);
+  font-size: .8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: border-color .2s, color .2s;
+}
+.proy-new-btn:hover {
+  border-color: var(--border3);
+  color: var(--text);
+}
+
+/* ── Empty state ── */
+.proy-empty {
+  text-align: center;
+  padding: 48px 24px;
+  color: var(--muted);
+  font-family: var(--serif);
+  font-size: 1.05rem;
+}
+.proy-empty-glyph {
+  display: block;
+  font-size: 2rem;
+  margin-bottom: 12px;
+  opacity: .4;
+}
+
+/* ━━━━━━━━━━━━━━━━━
+   VISTA PROYECTO
+━━━━━━━━━━━━━━━━━ */
+.proyecto-view {
+  display: none;
+  flex-direction: column;
+  height: 100%;
+}
+.proyecto-view.open { display: flex; }
+
+.pv-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 28px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.pv-back-btn {
+  background: none;
+  border: 1px solid var(--border2);
+  color: var(--muted2);
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: .75rem;
+  cursor: pointer;
+  font-family: var(--mono);
+  transition: border-color .2s, color .2s;
+}
+.pv-back-btn:hover { border-color: var(--border3); color: var(--text); }
+
+.pv-emoji { font-size: 1.8rem; }
+.pv-title {
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  color: var(--text2);
+  flex: 1;
+}
+
+.pv-tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--border);
+  padding: 0 28px;
+  flex-shrink: 0;
+}
+.pv-tab {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--muted2);
+  padding: 12px 16px;
+  font-family: var(--mono);
+  font-size: .75rem;
+  cursor: pointer;
+  transition: color .2s;
+  margin-bottom: -1px;
+}
+.pv-tab:hover { color: var(--text); }
+.pv-tab.active { color: var(--grape3); border-bottom-color: var(--grape3); }
+
+.pv-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px 28px;
+}
+
+/* ── Overview ── */
+.pv-overview-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.pv-info-block {
+  background: var(--s2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+.pv-info-label {
+  font-size: .65rem;
+  font-family: var(--mono);
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  margin-bottom: 6px;
+}
+.pv-info-value {
+  font-size: .9rem;
+  color: var(--text);
+}
+
+.pv-notes {
+  width: 100%;
+  background: var(--s1);
+  border: 1px solid var(--border2);
+  border-radius: 10px;
+  color: var(--text);
+  font-family: var(--serif);
+  font-size: .9rem;
+  padding: 14px 16px;
+  resize: vertical;
+  min-height: 120px;
+  transition: border-color .2s;
+}
+.pv-notes:focus { outline: none; border-color: var(--border3); }
+
+/* ── Kanban ── */
+.pv-kanban {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  align-items: start;
+}
+
+.kanban-col {
+  background: var(--s2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.kanban-col-head {
+  padding: 12px 14px 10px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.kanban-col-name {
+  font-family: var(--mono);
+  font-size: .72rem;
+  color: var(--muted2);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+.kanban-col-count {
+  font-family: var(--mono);
+  font-size: .65rem;
+  color: var(--muted);
+  background: var(--s3);
+  padding: 1px 7px;
+  border-radius: 8px;
+}
+.kanban-cards {
+  padding: 10px;
+  min-height: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.kanban-card {
+  background: var(--s1);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: .82rem;
+  color: var(--text);
+  cursor: default;
+  position: relative;
+  transition: border-color .2s;
+}
+.kanban-card:hover { border-color: var(--border2); }
+.kanban-card-del {
+  position: absolute;
+  top: 6px; right: 8px;
+  background: none;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: .8rem;
+  opacity: 0;
+  transition: opacity .2s;
+}
+.kanban-card:hover .kanban-card-del { opacity: 1; }
+
+.kanban-add-row {
+  padding: 8px 10px;
+  display: flex;
+  gap: 6px;
+}
+.kanban-add-input {
+  flex: 1;
+  background: var(--s1);
+  border: 1px solid var(--border2);
+  border-radius: 6px;
+  color: var(--text);
+  font-size: .78rem;
+  padding: 5px 8px;
+}
+.kanban-add-input:focus { outline: none; border-color: var(--border3); }
+.kanban-add-btn {
+  background: none;
+  border: 1px solid var(--border2);
+  color: var(--muted2);
+  border-radius: 6px;
+  padding: 5px 8px;
+  font-size: .78rem;
+  cursor: pointer;
+  transition: border-color .2s, color .2s;
+}
+.kanban-add-btn:hover { border-color: var(--border3); color: var(--text); }
+
+/* ── New project modal ── */
+.proy-modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 24px;
+}
+.proy-modal-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .pv-kanban { grid-template-columns: repeat(2, 1fr); }
+  .proy-grid { grid-template-columns: 1fr; }
+  .pv-overview-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .pv-kanban { grid-template-columns: 1fr; }
+}

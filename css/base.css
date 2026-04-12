@@ -1,0 +1,214 @@
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   ANDINET V2 — base.css
+   Variables · Reset · Tipografía · Utilidades
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Geist+Mono:wght@300;400;500&family=Geist:wght@300;400;500&family=Caveat:wght@400;600&display=swap');
+
+/* ── Tema por defecto: Noche ── */
+:root {
+  /* Fondos */
+  --bg:      #0c0a12;
+  --s1:      #120f1a;
+  --s2:      #1a1625;
+  --s3:      #241e30;
+  --s4:      #2e2840;
+
+  /* Bordes */
+  --border:  rgba(180, 140, 220, 0.07);
+  --border2: rgba(180, 140, 220, 0.14);
+  --border3: rgba(180, 140, 220, 0.24);
+
+  /* Texto */
+  --text:    #d4cfe0;
+  --text2:   #ede5f5;
+  --muted:   #5a4f70;
+  --muted2:  #8a7a9a;
+
+  /* Acento grape */
+  --grape:   #7a5c9a;
+  --grape2:  #9b7ab8;
+  --grape3:  #c4a8e0;
+
+  /* Paleta semántica por sección */
+  --estudio:  #5a7aaa;
+  --creacion: #c8965a;
+  --mundo:    #7a5c9a;
+  --love:     #c86e8a;
+
+  /* Colores de item */
+  --pink:    #c86e8a;
+  --rose:    #d4537e;
+  --green:   #5a8a6a;
+  --teal:    #4a8a8a;
+  --amber:   #c8965a;
+  --blue:    #5a7aaa;
+  --red:     #c86e6e;
+
+  /* Tipografía */
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --mono:  'Geist Mono', 'Courier New', monospace;
+  --sans:  'Geist', system-ui, sans-serif;
+  --hand:  'Caveat', cursive;
+
+  /* Espaciado base */
+  --r:   8px;
+  --r2:  12px;
+  --r3:  16px;
+
+  /* Sidebar OS */
+  --sidebar-w: 52px;
+
+  /* Transición */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+}
+
+/* ── Reset ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 14px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-weight: 300;
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.6;
+  transition: background 0.4s var(--ease), color 0.3s var(--ease);
+}
+
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; font-family: inherit; border: none; background: none; }
+input, textarea, select { font-family: inherit; font-size: inherit; color: inherit; background: none; border: none; outline: none; }
+input::placeholder, textarea::placeholder { color: var(--muted); }
+ul, ol { list-style: none; }
+img { display: block; max-width: 100%; }
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--s3); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--grape); }
+
+/* ── Focus ── */
+:focus-visible {
+  outline: 1px solid var(--grape2);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ── Animaciones globales ── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInFast {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.5; }
+}
+
+/* ── Utilidades de tipo ── */
+.t-serif  { font-family: var(--serif); }
+.t-mono   { font-family: var(--mono); }
+.t-hand   { font-family: var(--hand); }
+.t-muted  { color: var(--muted2); }
+.t-grape  { color: var(--grape2); }
+.t-label  {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ── Texturas de fondo ── */
+body.tx-grain::before,
+body.tx-grid::before,
+body.tx-dots::before,
+body.tx-lines::before,
+body.tx-image::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+body.tx-grain::before {
+  opacity: 0.045;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E") repeat;
+  background-size: 300px 300px;
+}
+body.tx-grid::before {
+  opacity: 0.05;
+  background-image: linear-gradient(rgba(180,140,255,.8) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(180,140,255,.8) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+body.tx-dots::before {
+  opacity: 0.08;
+  background: radial-gradient(circle, rgba(180,140,255,.8) 1px, transparent 1px) 0 0 / 20px 20px;
+}
+body.tx-lines::before {
+  opacity: 0.04;
+  background: repeating-linear-gradient(45deg, rgba(180,140,255,.8) 0, rgba(180,140,255,.8) 1px, transparent 0, transparent 50%);
+  background-size: 16px 16px;
+}
+body.tx-image::before {
+  background-image: var(--tx-img-url, none);
+  background-repeat: repeat;
+  background-size: var(--tx-img-size, 220px);
+  background-position: center;
+  opacity: var(--tx-img-opacity, 0.35);
+}
+
+/* ── Temas ── */
+body.theme-alba {
+  --bg: #0d0c10; --s1: #131118; --s2: #1c1a24; --s3: #272430;
+  --text: #ddd8e8; --text2: #f0ecf8; --muted: #5c5270; --muted2: #9288a4;
+  --grape: #8060aa; --grape2: #a882d0; --grape3: #d0b8f0;
+  --border: rgba(160,120,220,.07); --border2: rgba(160,120,220,.14); --border3: rgba(160,120,220,.24);
+}
+body.theme-carbono {
+  --bg: #0a0a0a; --s1: #111; --s2: #1a1a1a; --s3: #222;
+  --text: #c8c8c8; --text2: #e8e8e8; --muted: #484848; --muted2: #787878;
+  --grape: #666; --grape2: #999; --grape3: #ccc;
+  --border: rgba(255,255,255,.05); --border2: rgba(255,255,255,.1); --border3: rgba(255,255,255,.18);
+}
+body.theme-bosque {
+  --bg: #080e0a; --s1: #0e150f; --s2: #151e16; --s3: #1e2a1f;
+  --text: #c8d4c8; --text2: #e0ece0; --muted: #486048; --muted2: #7a9a7a;
+  --grape: #5a8a5a; --grape2: #7ab87a; --grape3: #b0d8b0;
+  --border: rgba(120,180,120,.07); --border2: rgba(120,180,120,.14); --border3: rgba(120,180,120,.24);
+}
+body.theme-tinta {
+  --bg: #080a10; --s1: #0e1018; --s2: #151820; --s3: #1e2230;
+  --text: #c8ccd8; --text2: #e0e4f0; --muted: #404860; --muted2: #7078a0;
+  --grape: #4a6aaa; --grape2: #6a8acc; --grape3: #a8b8e8;
+  --border: rgba(100,130,200,.07); --border2: rgba(100,130,200,.14); --border3: rgba(100,130,200,.24);
+}
+body.theme-ember {
+  --bg: #0e0a08; --s1: #181210; --s2: #221a18; --s3: #2c2220;
+  --text: #d8ccc8; --text2: #f0e8e4; --muted: #6a5048; --muted2: #9a8070;
+  --grape: #aa6a40; --grape2: #cc8a60; --grape3: #e8c0a0;
+  --border: rgba(200,140,100,.07); --border2: rgba(200,140,100,.14); --border3: rgba(200,140,100,.24);
+}

@@ -1,0 +1,216 @@
+/* ============================================================
+   os.css — OS Home Dashboard
+   Andinet v2
+   ============================================================ */
+
+/* ── Home Greeting ───────────────────────────────────────── */
+
+.home-greeting {
+  padding: 28px 0 20px;
+}
+
+.htime {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.home-greeting h1 {
+  font-family: var(--serif);
+  font-size: 38px;
+  font-weight: 400;
+  line-height: 1.1;
+  margin-bottom: 6px;
+  color: var(--text2);
+}
+
+.home-greeting h1 em {
+  font-style: italic;
+  color: var(--muted2);
+}
+
+.hphrase {
+  font-size: 12px;
+  color: var(--muted2);
+  font-style: italic;
+  line-height: 1.5;
+}
+
+/* ── Widget Grid ─────────────────────────────────────────── */
+
+.wgrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.widget {
+  background: var(--s1);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.widget-tall {
+  grid-row: span 2;
+}
+
+.wtitle {
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+.wscroll {
+  max-height: 160px;
+  overflow-y: auto;
+}
+
+.wlink {
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 10px;
+  cursor: pointer;
+  padding: 8px 0 0;
+  display: block;
+  text-align: left;
+  width: 100%;
+  transition: color 0.15s var(--ease);
+}
+
+.wlink:hover {
+  color: var(--grape2);
+}
+
+/* ── Stats Widget ────────────────────────────────────────── */
+
+.mstat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.mstat:last-child {
+  border-bottom: none;
+}
+
+.mstat-num {
+  font-family: var(--mono);
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.mstat-lbl {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-align: right;
+}
+
+/* ── Mini Calendario (OS) ────────────────────────────────── */
+
+.mini-cal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.mini-cal-title {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.cal-nav-btn {
+  background: none;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 4px;
+  padding: 2px 6px;
+  line-height: 1;
+  transition: color 0.15s var(--ease);
+}
+
+.cal-nav-btn:hover {
+  color: var(--text);
+}
+
+.cal-grid7 {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 3px;
+}
+
+.cdow {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--muted);
+  text-align: center;
+  padding: 3px 0;
+}
+
+.cday {
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  cursor: pointer;
+  transition:
+    background 0.12s var(--ease),
+    color 0.12s var(--ease);
+  position: relative;
+  gap: 2px;
+}
+
+.cday:hover {
+  background: var(--s3);
+  color: var(--text);
+}
+
+.cday.today {
+  background: var(--s3);
+  color: var(--grape2);
+  border: 1px solid rgba(154, 122, 184, 0.3);
+}
+
+.cday.has-tasks {
+  color: var(--text);
+}
+
+.cday.has-tasks::after {
+  content: '';
+  display: block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--grape);
+  position: absolute;
+  bottom: 2px;
+}
+
+.cday.empty {
+  pointer-events: none;
+  color: transparent;
+}

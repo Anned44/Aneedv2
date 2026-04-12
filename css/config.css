@@ -1,0 +1,326 @@
+/* ============================================================
+   config.css — Vista de Configuración (#view-config)
+   Andinet v2
+   ============================================================ */
+
+/* ── Wrap & Body ─────────────────────────────────────────── */
+
+.cfg-wrap {
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cfg-body {
+  width: 100%;
+  max-width: 780px;
+  padding: 2rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+/* ── Section Title ───────────────────────────────────────── */
+
+.cfg-section-title {
+  font-family: var(--mono);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 8px;
+  margin-bottom: 1rem;
+}
+
+/* ── Generic Row & Label & Input ─────────────────────────── */
+
+.cfg-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.cfg-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  text-transform: uppercase;
+  color: var(--muted2);
+  min-width: 170px;
+  flex-shrink: 0;
+}
+
+.cfg-input {
+  flex: 1;
+  background: var(--s2);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  color: var(--text);
+  font-size: 13px;
+  padding: 8px 12px;
+  outline: none;
+  transition: border-color 0.15s var(--ease);
+  font-family: var(--sans);
+  min-width: 0;
+}
+
+.cfg-input:focus {
+  border-color: var(--grape);
+}
+
+/* ── Save Button ─────────────────────────────────────────── */
+
+.cfg-save-btn {
+  background: none;
+  border: 1px solid var(--border2);
+  border-radius: var(--r);
+  color: var(--grape2);
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 8px 18px;
+  cursor: pointer;
+  transition: background 0.15s var(--ease), border-color 0.15s var(--ease);
+}
+
+.cfg-save-btn:hover {
+  background: var(--s2);
+}
+
+/* ── Sub-section label ───────────────────────────────────── */
+
+.cfg-subsec {
+  font-family: var(--mono);
+  font-size: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--muted);
+  margin-bottom: 0.6rem;
+}
+
+/* ── Themes Grid ─────────────────────────────────────────── */
+
+.cfg-themes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 8px;
+}
+
+.cfg-theme-card {
+  background: var(--s1);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px 8px 10px;
+  cursor: pointer;
+  text-align: center;
+  transition:
+    border-color 0.15s var(--ease),
+    transform 0.15s var(--ease),
+    background 0.15s var(--ease);
+}
+
+.cfg-theme-card:hover {
+  border-color: var(--border2);
+  transform: translateY(-2px);
+}
+
+.cfg-theme-card.active {
+  border-color: var(--grape2);
+  background: var(--s2);
+}
+
+.cfg-swatches {
+  display: flex;
+  gap: 3px;
+  justify-content: center;
+  margin-bottom: 7px;
+}
+
+.cfg-swatch {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  flex-shrink: 0;
+}
+
+.cfg-theme-name {
+  font-family: var(--mono);
+  font-size: 8.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+/* ── Fonts Grid ──────────────────────────────────────────── */
+
+.cfg-fonts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
+  gap: 8px;
+}
+
+.cfg-font-card {
+  background: var(--s1);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 12px;
+  cursor: pointer;
+  transition:
+    border-color 0.15s var(--ease),
+    transform 0.15s var(--ease),
+    background 0.15s var(--ease);
+}
+
+.cfg-font-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--border2);
+}
+
+.cfg-font-card.active {
+  border-color: var(--grape2);
+  background: var(--s2);
+}
+
+.cfg-font-sample {
+  font-size: 1.5rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--text2);
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+
+.cfg-font-name {
+  font-family: var(--mono);
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text);
+  margin-bottom: 3px;
+}
+
+.cfg-font-pair {
+  font-family: var(--mono);
+  font-size: 7.5px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* ── Textures ────────────────────────────────────────────── */
+
+.cfg-tex-row {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.cfg-tex-btn {
+  background: var(--s1);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 9px;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition:
+    border-color 0.15s var(--ease),
+    color 0.15s var(--ease),
+    background 0.15s var(--ease);
+  letter-spacing: 0.08em;
+}
+
+.cfg-tex-btn:hover {
+  border-color: var(--border2);
+  color: var(--text);
+}
+
+.cfg-tex-btn.active {
+  border-color: var(--grape2);
+  color: var(--grape2);
+  background: var(--s2);
+}
+
+/* ── Image Upload Controls ───────────────────────────────── */
+
+.cfg-tx-img-wrap {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: var(--s1);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  display: none;
+}
+
+.cfg-tx-img-wrap.visible {
+  display: block;
+}
+
+.cfg-tx-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.cfg-tx-label {
+  font-family: var(--mono);
+  font-size: 8px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  min-width: 60px;
+  flex-shrink: 0;
+}
+
+.cfg-tx-slider {
+  flex: 1;
+  min-width: 100px;
+  accent-color: var(--grape2);
+  cursor: pointer;
+}
+
+.cfg-tx-val {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--grape2);
+  min-width: 28px;
+  text-align: right;
+}
+
+/* ── Backup / Restore buttons (shared with cfg-save-btn style) ── */
+
+.cfg-danger-btn {
+  background: none;
+  border: 1px solid var(--border2);
+  border-radius: var(--r);
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 8px 18px;
+  cursor: pointer;
+  transition: background 0.15s var(--ease), color 0.15s var(--ease);
+}
+
+.cfg-danger-btn:hover {
+  background: var(--s2);
+  color: var(--text);
+}
+
+/* ── Section spacer ─────────────────────────────────────── */
+
+.cfg-section {
+  display: flex;
+  flex-direction: column;
+}
