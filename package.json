@@ -1,26 +1,17 @@
 {
-     "name": "andinet-v2",
-     "version": "2.0.0",
-     "description": "Portal editorial · OS personal · Sistema relacional",
-     "main": "server.js",
-     "scripts": {
-       "start": "node server.js",
-       "dev": "node server.js"
-     },
-     "keywords": [
-       "personal-os",
-       "planner",
-       "journal",
-       "neurodivergent"
-     ],
-     "author": "Anne",
-     "license": "MIT",
-     "dependencies": {
-       "express": "^5.2.1",
-       "node-fetch": "^3.3.2",
-       "cors": "^2.8.5"
-     },
-     "engines": {
-       "node": "18.x"
-     }
-   }
+  "name": "andinet-v2",
+  "version": "2.0.0",
+  "description": "Portal editorial · OS personal · Sistema relacional",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "node-fetch": "^3.3.2",
+    "cors": "^2.8.5"
+  },
+  "engines": {
+    "node": "18.x"
+  }
+}
