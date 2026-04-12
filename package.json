@@ -1,5 +1,6 @@
 {
   "name": "andinet-v2",
+  "type": "module",
   "version": "2.0.0",
   "description": "Portal editorial · OS personal · Sistema relacional",
   "main": "server.js",
