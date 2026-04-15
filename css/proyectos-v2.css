@@ -1,0 +1,741 @@
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   ANDINET V2 — proyectos-v2.css
+   Diseño épico para sistema avanzado de proyectos
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* ══════════════════════════════════════════════════════
+   VISTA GALERÍA
+══════════════════════════════════════════════════════ */
+
+.pv2-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  padding: 20px;
+  animation: fadeIn 0.3s var(--ease);
+}
+
+.pv2-card {
+  background: var(--s2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  cursor: pointer;
+  transition: all 0.2s var(--ease);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pv2-card:hover {
+  border-color: var(--border2);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.pv2-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 8px;
+}
+
+.pv2-card-title {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--text);
+  flex: 1;
+}
+
+.pv2-card-estado {
+  font-family: var(--mono);
+  font-size: 8px;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid;
+}
+
+.pv2-card-estado.idea { color: var(--teal); border-color: var(--teal); }
+.pv2-card-estado.en-progreso { color: var(--amber); border-color: var(--amber); }
+.pv2-card-estado.completado { color: var(--green); border-color: var(--green); }
+
+.pv2-card-meta {
+  display: flex;
+  gap: 10px;
+  font-size: 12px;
+  color: var(--muted2);
+}
+
+.pv2-card-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.pv2-card-progress {
+  height: 4px;
+  background: var(--s3);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.pv2-card-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--grape), var(--grape2));
+  border-radius: 2px;
+  transition: width 0.3s var(--ease);
+}
+
+.pv2-card-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.pv2-category-badge {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--muted);
+  background: var(--s1);
+  padding: 3px 8px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+}
+
+.pv2-card-actions {
+  display: flex;
+  gap: 6px;
+  opacity: 0;
+  transition: opacity 0.2s var(--ease);
+}
+
+.pv2-card:hover .pv2-card-actions {
+  opacity: 1;
+}
+
+.pv2-action-btn {
+  background: var(--s1);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--muted);
+  font-size: 12px;
+  padding: 4px 8px;
+  cursor: pointer;
+  transition: all 0.15s var(--ease);
+}
+
+.pv2-action-btn:hover {
+  background: var(--s2);
+  border-color: var(--border2);
+  color: var(--text);
+}
+
+/* ══════════════════════════════════════════════════════
+   VISTA KANBAN
+══════════════════════════════════════════════════════ */
+
+.pv2-kanban-wrap {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 20px;
+  gap: 20px;
+}
+
+.pv2-project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.pv2-proyecto-info {
+  flex: 1;
+}
+
+.pv2-proyecto-title {
+  font-family: var(--serif);
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.pv2-proyecto-desc {
+  font-size: 13px;
+  color: var(--muted2);
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.pv2-proyecto-meta {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.pv2-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.pv2-meta-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  text-transform: uppercase;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+}
+
+.pv2-meta-value {
+  font-size: 13px;
+  color: var(--text);
+  font-weight: 400;
+}
+
+.pv2-progress-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pv2-progress-track {
+  height: 6px;
+  background: var(--s3);
+  border-radius: 3px;
+  overflow: hidden;
+  width: 200px;
+}
+
+.pv2-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--grape), var(--grape2));
+  border-radius: 3px;
+  transition: width 0.5s var(--ease);
+}
+
+.pv2-progress-text {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.pv2-proyecto-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pv2-btn {
+  background: var(--grape);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all 0.2s var(--ease);
+  letter-spacing: 0.05em;
+}
+
+.pv2-btn:hover {
+  background: var(--grape2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(122, 92, 154, 0.3);
+}
+
+.pv2-btn-secondary {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--muted);
+}
+
+.pv2-btn-secondary:hover {
+  background: var(--s2);
+  border-color: var(--border2);
+  color: var(--text);
+}
+
+/* Kanban Board */
+.pv2-kanban-board {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 16px;
+  padding: 0;
+}
+
+.pv2-columna {
+  background: var(--s1);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  min-height: 500px;
+  max-height: calc(100vh - 300px);
+  overflow: hidden;
+}
+
+.pv2-columna-header {
+  padding: 14px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.pv2-columna-title {
+  font-family: var(--serif);
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--text2);
+  flex: 1;
+}
+
+.pv2-columna-count {
+  font-family: var(--mono);
+  font-size: 12px;
+  background: var(--s2);
+  padding: 2px 8px;
+  border-radius: 4px;
+  color: var(--muted);
+}
+
+.pv2-columna-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pv2-tarea {
+  background: var(--s2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+  cursor: grab;
+  transition: all 0.15s var(--ease);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pv2-tarea:active {
+  cursor: grabbing;
+  opacity: 0.8;
+}
+
+.pv2-tarea:hover {
+  border-color: var(--border2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.pv2-tarea-titulo {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+.pv2-tarea-meta {
+  display: flex;
+  gap: 8px;
+  font-size: 11px;
+}
+
+.pv2-tarea-asignado {
+  color: var(--muted);
+  background: var(--s1);
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
+.pv2-tarea-vencimiento {
+  color: var(--muted);
+  background: var(--s1);
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
+.pv2-tarea-etiquetas {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.pv2-etiqueta {
+  font-family: var(--mono);
+  font-size: 9px;
+  background: var(--grape);
+  color: white;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
+.pv2-columna-footer {
+  padding: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.pv2-add-tarea {
+  background: none;
+  border: 1px dashed var(--border);
+  border-radius: 6px;
+  color: var(--muted);
+  font-size: 12px;
+  padding: 8px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.15s var(--ease);
+  width: 100%;
+}
+
+.pv2-add-tarea:hover {
+  border-color: var(--grape);
+  color: var(--grape);
+  background: rgba(122, 92, 154, 0.05);
+}
+
+/* ══════════════════════════════════════════════════════
+   PANEL LATERAL (Notas, Finanzas, Archivos)
+══════════════════════════════════════════════════════ */
+
+.pv2-sidebar {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.pv2-panel {
+  background: var(--s2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pv2-panel-title {
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+}
+
+.pv2-notas {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pv2-notas-input {
+  width: 100%;
+  background: var(--s1);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font-family: var(--serif);
+  font-size: 13px;
+  padding: 12px;
+  outline: none;
+  resize: vertical;
+  min-height: 100px;
+  transition: border-color 0.15s var(--ease);
+}
+
+.pv2-notas-input:focus {
+  border-color: var(--grape);
+}
+
+/* Finanzas */
+.pv2-finanzas {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pv2-finanzas-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.pv2-finanza-stat {
+  background: var(--s1);
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pv2-finanza-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  color: var(--muted);
+}
+
+.pv2-finanza-value {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.pv2-finanza-value.warning {
+  color: var(--amber);
+}
+
+.pv2-finanza-value.danger {
+  color: var(--red);
+}
+
+.pv2-gastos-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.pv2-gasto-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  background: var(--s1);
+  border-radius: 6px;
+  font-size: 11px;
+}
+
+.pv2-gasto-desc {
+  flex: 1;
+  color: var(--text);
+}
+
+.pv2-gasto-monto {
+  color: var(--muted);
+  margin-right: 8px;
+}
+
+.pv2-gasto-del {
+  background: none;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.pv2-gasto-del:hover {
+  color: var(--red);
+}
+
+/* Archivos */
+.pv2-archivos {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.pv2-archivo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  background: var(--s1);
+  border-radius: 6px;
+  font-size: 11px;
+}
+
+.pv2-archivo-titulo {
+  flex: 1;
+  color: var(--text);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.pv2-archivo-titulo:hover {
+  text-decoration: underline;
+  color: var(--grape);
+}
+
+.pv2-archivo-del {
+  background: none;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.pv2-archivo-del:hover {
+  color: var(--red);
+}
+
+/* ══════════════════════════════════════════════════════
+   MODAL CAPTURA
+══════════════════════════════════════════════════════ */
+
+.pv2-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  backdrop-filter: blur(4px);
+  animation: fadeIn 0.2s var(--ease);
+}
+
+.pv2-modal {
+  background: var(--s2);
+  border: 1px solid var(--border2);
+  border-radius: 14px;
+  padding: 24px;
+  width: 100%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.6);
+}
+
+.pv2-modal-title {
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  color: var(--text);
+  margin-bottom: 20px;
+}
+
+.pv2-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.pv2-form-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+}
+
+.pv2-form-input {
+  background: var(--s1);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 13px;
+  padding: 10px;
+  outline: none;
+  transition: border-color 0.15s var(--ease);
+}
+
+.pv2-form-input:focus {
+  border-color: var(--grape);
+  box-shadow: 0 0 0 2px rgba(122, 92, 154, 0.1);
+}
+
+.pv2-form-textarea {
+  min-height: 80px;
+  resize: vertical;
+  font-family: var(--sans);
+}
+
+.pv2-modal-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+/* ══════════════════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════════════════ */
+
+@media (max-width: 1200px) {
+  .pv2-kanban-board {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pv2-sidebar {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .pv2-kanban-board {
+    grid-template-columns: 1fr;
+  }
+
+  .pv2-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .pv2-modal {
+    max-width: 90vw;
+  }
+}
+
+/* ══════════════════════════════════════════════════════
+   ANIMATIONS
+══════════════════════════════════════════════════════ */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scrollbar */
+.pv2-columna-body::-webkit-scrollbar,
+.pv2-modal::-webkit-scrollbar {
+  width: 6px;
+}
+
+.pv2-columna-body::-webkit-scrollbar-track,
+.pv2-modal::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.pv2-columna-body::-webkit-scrollbar-thumb,
+.pv2-modal::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+.pv2-columna-body::-webkit-scrollbar-thumb:hover,
+.pv2-modal::-webkit-scrollbar-thumb:hover {
+  background: var(--border2);
+}
