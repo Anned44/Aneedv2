@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="es" class="theme-noche">
 <head>
   <meta charset="UTF-8">
@@ -7,20 +8,24 @@
   <meta name="description" content="Portal editorial · OS personal · Sistema relacional de páginas y proyectos">
 
   <!-- Google Fonts: Cormorant Garamond + Geist -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Caveat:wght@400;500&display=swap" rel="stylesheet">
 
   <!-- Geist (via CDN) -->
+
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-sans/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-mono/style.css">
 
   <!-- CSS: base system -->
+
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/components.css">
 
   <!-- CSS: views -->
+
   <link rel="stylesheet" href="css/portal.css">
   <link rel="stylesheet" href="css/config.css">
   <link rel="stylesheet" href="css/os.css">
@@ -31,6 +36,7 @@
   <link rel="stylesheet" href="css/pages.css">
   <link rel="stylesheet" href="css/bottombar.css">
   <link rel="stylesheet" href="css/claude-assistant.css">
+  <link rel="stylesheet" href="css/proyectos-v2.css">
 
   <style>
     /* Inline critical: font fallback while Geist loads */
@@ -39,21 +45,25 @@
       --mono: 'Geist Mono', 'JetBrains Mono', monospace;
     }
   </style>
+
 </head>
 <body>
 
 <!-- ══════════════════════════════════════════════
      TOAST
 ══════════════════════════════════════════════ -->
+
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <!-- ══════════════════════════════════════════════
      VIEW: PORTAL
 ══════════════════════════════════════════════ -->
+
 <div id="view-portal" class="view view-portal">
 <div class="portal-wrap">
 
   <!-- Top bar -->
+
   <div class="portal-top">
     <span class="portal-logo">Andinet</span>
     <div class="portal-quicklinks">
@@ -65,6 +75,7 @@
   </div>
 
   <!-- Hero central -->
+
   <div class="portal-center">
     <div class="portal-eyebrow">Sistema personal</div>
     <h1 class="portal-title">Ανδρέα</h1>
@@ -89,6 +100,7 @@
   </div>
 
   <!-- Tiles: 4 secciones -->
+
   <div class="portal-tiles">
     <div class="portal-tile estudio" data-nav="estudio">
       <span class="tile-glyph">✎</span>
@@ -117,6 +129,7 @@
   </div>
 
   <!-- Mini calendario -->
+
   <div class="portal-cal-wrap">
     <div class="portal-cal-header">
       <button class="hcal-nav" id="portal-cal-prev">‹</button>
@@ -127,6 +140,7 @@
   </div>
 
   <!-- Footer con cita -->
+
   <div class="portal-footer">
     <span class="portal-quote" id="portal-quote">cargando…</span>
     <span class="portal-ver" id="portal-footer-time">Andinet v2</span>
@@ -138,9 +152,11 @@
 <!-- ══════════════════════════════════════════════
      VIEW: OS (Workspace)
 ══════════════════════════════════════════════ -->
+
 <div id="view-os" class="view view-os">
 
   <!-- Sidebar -->
+
   <aside class="sidebar">
     <!-- Logo: click vuelve al portal -->
     <div class="sidebar-logo" title="Portal">
@@ -149,56 +165,60 @@
       </svg>
     </div>
 
-    <!-- Nav buttons -->
-    <nav class="sidebar-nav">
-      <button class="nav-btn" data-os-page="os-home" title="Inicio">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="17" height="17">
-          <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
-          <polyline points="9 22 9 12 15 12 15 22"/>
-        </svg>
-      </button>
-      <button class="nav-btn" data-os-page="planner" title="Planner">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="17" height="17">
-          <rect x="3" y="4" width="18" height="18" rx="2"/>
-          <line x1="16" y1="2" x2="16" y2="6"/>
-          <line x1="8" y1="2" x2="8" y2="6"/>
-          <line x1="3" y1="10" x2="21" y2="10"/>
-        </svg>
-      </button>
-      <button class="nav-btn" data-os-page="inbox" title="Inbox">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="17" height="17">
-          <polyline points="22 12 16 12 14 15 10 15 8 12 2 12"/>
-          <path d="M5.45 5.11L2 12v6a2 2 0 002 2h16a2 2 0 002-2v-6l-3.45-6.89A2 2 0 0016.76 4H7.24a2 2 0 00-1.79 1.11z"/>
-        </svg>
-      </button>
-      <button class="nav-btn" data-os-page="proyectos" title="Proyectos">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="17" height="17">
-          <path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/>
-        </svg>
-      </button>
-      <button class="nav-btn" data-os-page="journaling" title="Diario">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="17" height="17">
-          <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
-          <polyline points="14 2 14 8 20 8"/>
-          <line x1="16" y1="13" x2="8" y2="13"/>
-          <line x1="16" y1="17" x2="8" y2="17"/>
-          <polyline points="10 9 9 9 8 9"/>
-        </svg>
-      </button>
-    </nav>
+```
+<!-- Nav buttons -->
+<nav class="sidebar-nav">
+  <button class="nav-btn" data-os-page="os-home" title="Inicio">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="17" height="17">
+      <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+      <polyline points="9 22 9 12 15 12 15 22"/>
+    </svg>
+  </button>
+  <button class="nav-btn" data-os-page="planner" title="Planner">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="17" height="17">
+      <rect x="3" y="4" width="18" height="18" rx="2"/>
+      <line x1="16" y1="2" x2="16" y2="6"/>
+      <line x1="8" y1="2" x2="8" y2="6"/>
+      <line x1="3" y1="10" x2="21" y2="10"/>
+    </svg>
+  </button>
+  <button class="nav-btn" data-os-page="inbox" title="Inbox">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="17" height="17">
+      <polyline points="22 12 16 12 14 15 10 15 8 12 2 12"/>
+      <path d="M5.45 5.11L2 12v6a2 2 0 002 2h16a2 2 0 002-2v-6l-3.45-6.89A2 2 0 0016.76 4H7.24a2 2 0 00-1.79 1.11z"/>
+    </svg>
+  </button>
+  <button class="nav-btn" data-os-page="proyectos" title="Proyectos">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="17" height="17">
+      <path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/>
+    </svg>
+  </button>
+  <button class="nav-btn" data-os-page="journaling" title="Diario">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="17" height="17">
+      <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+      <polyline points="14 2 14 8 20 8"/>
+      <line x1="16" y1="13" x2="8" y2="13"/>
+      <line x1="16" y1="17" x2="8" y2="17"/>
+      <polyline points="10 9 9 9 8 9"/>
+    </svg>
+  </button>
+</nav>
 
-    <!-- Sidebar bottom -->
-    <div class="sidebar-bottom">
-      <button class="nav-btn" data-nav-config title="Configuración">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16">
-          <circle cx="12" cy="12" r="3"/>
-          <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/>
-        </svg>
-      </button>
-    </div>
+<!-- Sidebar bottom -->
+<div class="sidebar-bottom">
+  <button class="nav-btn" data-nav-config title="Configuración">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16" height="16">
+      <circle cx="12" cy="12" r="3"/>
+      <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/>
+    </svg>
+  </button>
+</div>
+```
+
   </aside>
 
   <!-- Main content -->
+
   <main class="os-main">
     <!-- OS Home -->
     <div id="os-page-os-home" class="os-page active">
@@ -208,60 +228,64 @@
         <div class="hphrase" id="os-hphrase"></div>
       </div>
 
-      <!-- Stats -->
-      <div class="wgrid">
-        <div class="widget">
-          <div class="wtitle">Hoy</div>
-          <div class="mstat">
-            <span class="mstat-lbl">Tareas</span>
-            <span class="mstat-num" id="os-stat-planner">—</span>
-          </div>
-          <div class="mstat">
-            <span class="mstat-lbl">Inbox</span>
-            <span class="mstat-num" id="os-stat-inbox">—</span>
-          </div>
-          <div class="mstat">
-            <span class="mstat-lbl">Proyectos</span>
-            <span class="mstat-num" id="os-stat-proyectos">—</span>
-          </div>
-        </div>
-
-        <div class="widget widget-tall">
-          <div class="wtitle">Calendario</div>
-          <div class="mini-cal-header">
-            <button class="cal-nav-btn" id="os-cal-prev">‹</button>
-            <span class="mini-cal-title" id="os-mini-cal-title"></span>
-            <button class="cal-nav-btn" id="os-cal-next">›</button>
-          </div>
-          <div class="cal-grid7" id="os-mini-cal-grid"></div>
-        </div>
-
-        <div class="widget">
-          <div class="wtitle">Inbox</div>
-          <div id="os-inbox-widget" class="wscroll"></div>
-        </div>
-
-        <div class="widget">
-          <div class="wtitle">Proyectos</div>
-          <div id="os-proyectos-widget" class="wscroll"></div>
-        </div>
+```
+  <!-- Stats -->
+  <div class="wgrid">
+    <div class="widget">
+      <div class="wtitle">Hoy</div>
+      <div class="mstat">
+        <span class="mstat-lbl">Tareas</span>
+        <span class="mstat-num" id="os-stat-planner">—</span>
+      </div>
+      <div class="mstat">
+        <span class="mstat-lbl">Inbox</span>
+        <span class="mstat-num" id="os-stat-inbox">—</span>
+      </div>
+      <div class="mstat">
+        <span class="mstat-lbl">Proyectos</span>
+        <span class="mstat-num" id="os-stat-proyectos">—</span>
       </div>
     </div>
 
-    <!-- Planner -->
-    <div id="os-page-planner" class="os-page"></div>
+    <div class="widget widget-tall">
+      <div class="wtitle">Calendario</div>
+      <div class="mini-cal-header">
+        <button class="cal-nav-btn" id="os-cal-prev">‹</button>
+        <span class="mini-cal-title" id="os-mini-cal-title"></span>
+        <button class="cal-nav-btn" id="os-cal-next">›</button>
+      </div>
+      <div class="cal-grid7" id="os-mini-cal-grid"></div>
+    </div>
 
-    <!-- Inbox -->
-    <div id="os-page-inbox" class="os-page"></div>
+    <div class="widget">
+      <div class="wtitle">Inbox</div>
+      <div id="os-inbox-widget" class="wscroll"></div>
+    </div>
 
-    <!-- Proyectos -->
-    <div id="os-page-proyectos" class="os-page"></div>
+    <div class="widget">
+      <div class="wtitle">Proyectos</div>
+      <div id="os-proyectos-widget" class="wscroll"></div>
+    </div>
+  </div>
+</div>
 
-    <!-- Journaling -->
-    <div id="os-page-journaling" class="os-page"></div>
+<!-- Planner -->
+<div id="os-page-planner" class="os-page"></div>
+
+<!-- Inbox -->
+<div id="os-page-inbox" class="os-page"></div>
+
+<!-- Proyectos -->
+<div id="os-page-proyectos" class="os-page"></div>
+
+<!-- Journaling -->
+<div id="os-page-journaling" class="os-page"></div>
+```
+
   </main>
 
   <!-- FAB -->
+
   <div class="fab-overlay" id="fab-modal">
     <div class="fab-modal">
       <div class="fab-modal-title">Captura rápida</div>
@@ -287,86 +311,91 @@
     </div>
   </div>
 
-  <button class="fab" id="fab" title="Captura rápida (Ctrl+Space)">+</button>
+<button class="fab" id="fab" title="Captura rápida (Ctrl+Space)">+</button>
 
 </div><!-- /view-os -->
 
 <!-- ══════════════════════════════════════════════
      VIEW: CONFIG
 ══════════════════════════════════════════════ -->
+
 <div id="view-config" class="view view-config">
   <div class="cfg-wrap">
     <div class="cfg-body">
 
-      <!-- Header -->
-      <div style="display:flex;align-items:center;gap:14px;margin-bottom:32px">
-        <button class="btn-sm" data-nav-back>← volver</button>
-        <h2 style="font-family:var(--serif);font-size:1.5rem;color:var(--text2);flex:1">Configuración</h2>
-      </div>
+```
+  <!-- Header -->
+  <div style="display:flex;align-items:center;gap:14px;margin-bottom:32px">
+    <button class="btn-sm" data-nav-back>← volver</button>
+    <h2 style="font-family:var(--serif);font-size:1.5rem;color:var(--text2);flex:1">Configuración</h2>
+  </div>
 
-      <!-- Nombre -->
-      <div class="cfg-section">
-        <div class="cfg-section-title">Identidad</div>
-        <div class="cfg-row">
-          <label class="cfg-label">Nombre</label>
-          <input class="form-input" id="cfg-nombre-input" placeholder="Ανδρέα" style="max-width:240px">
-        </div>
-      </div>
-
-      <!-- Temas -->
-      <div class="cfg-section">
-        <div class="cfg-section-title">Tema</div>
-        <div class="cfg-themes-grid" id="cfg-themes-grid"></div>
-      </div>
-
-      <!-- Fuentes -->
-      <div class="cfg-section">
-        <div class="cfg-section-title">Tipografía</div>
-        <div class="cfg-fonts-grid" id="cfg-fonts-grid"></div>
-      </div>
-
-      <!-- Texturas -->
-      <div class="cfg-section">
-        <div class="cfg-section-title">Textura</div>
-        <div class="cfg-tex-row" id="cfg-tex-row"></div>
-
-        <!-- Image upload (hidden unless textura === imagen) -->
-        <div id="cfg-tx-img-wrap" class="cfg-tx-img-wrap">
-          <div class="cfg-row" style="margin-top:14px">
-            <label class="cfg-label">Imagen</label>
-            <input type="file" id="cfg-img-upload" accept="image/*" class="form-input" style="max-width:260px">
-          </div>
-          <div class="cfg-row">
-            <label class="cfg-label">Opacidad <span id="cfg-tx-opacity-val">0.15</span></label>
-            <input type="range" id="cfg-tx-opacity-slider" min="0.02" max="0.5" step="0.01" value="0.15" style="width:200px;accent-color:var(--grape)">
-          </div>
-          <div class="cfg-row">
-            <label class="cfg-label">Tamaño</label>
-            <div style="display:flex;gap:6px">
-              <button class="btn-sm cfg-tx-size-btn" data-size="cover">cover</button>
-              <button class="btn-sm cfg-tx-size-btn" data-size="contain">contain</button>
-              <button class="btn-sm cfg-tx-size-btn" data-size="220px">tile</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Datos -->
-      <div class="cfg-section">
-        <div class="cfg-section-title">Datos</div>
-        <div style="display:flex;gap:10px;flex-wrap:wrap">
-          <button class="btn-sm" id="cfg-backup-btn">↓ Exportar backup</button>
-          <button class="btn-sm" id="cfg-restore-btn">↑ Importar backup</button>
-        </div>
-      </div>
-
+  <!-- Nombre -->
+  <div class="cfg-section">
+    <div class="cfg-section-title">Identidad</div>
+    <div class="cfg-row">
+      <label class="cfg-label">Nombre</label>
+      <input class="form-input" id="cfg-nombre-input" placeholder="Ανδρέα" style="max-width:240px">
     </div>
+  </div>
+
+  <!-- Temas -->
+  <div class="cfg-section">
+    <div class="cfg-section-title">Tema</div>
+    <div class="cfg-themes-grid" id="cfg-themes-grid"></div>
+  </div>
+
+  <!-- Fuentes -->
+  <div class="cfg-section">
+    <div class="cfg-section-title">Tipografía</div>
+    <div class="cfg-fonts-grid" id="cfg-fonts-grid"></div>
+  </div>
+
+  <!-- Texturas -->
+  <div class="cfg-section">
+    <div class="cfg-section-title">Textura</div>
+    <div class="cfg-tex-row" id="cfg-tex-row"></div>
+
+    <!-- Image upload (hidden unless textura === imagen) -->
+    <div id="cfg-tx-img-wrap" class="cfg-tx-img-wrap">
+      <div class="cfg-row" style="margin-top:14px">
+        <label class="cfg-label">Imagen</label>
+        <input type="file" id="cfg-img-upload" accept="image/*" class="form-input" style="max-width:260px">
+      </div>
+      <div class="cfg-row">
+        <label class="cfg-label">Opacidad <span id="cfg-tx-opacity-val">0.15</span></label>
+        <input type="range" id="cfg-tx-opacity-slider" min="0.02" max="0.5" step="0.01" value="0.15" style="width:200px;accent-color:var(--grape)">
+      </div>
+      <div class="cfg-row">
+        <label class="cfg-label">Tamaño</label>
+        <div style="display:flex;gap:6px">
+          <button class="btn-sm cfg-tx-size-btn" data-size="cover">cover</button>
+          <button class="btn-sm cfg-tx-size-btn" data-size="contain">contain</button>
+          <button class="btn-sm cfg-tx-size-btn" data-size="220px">tile</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Datos -->
+  <div class="cfg-section">
+    <div class="cfg-section-title">Datos</div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <button class="btn-sm" id="cfg-backup-btn">↓ Exportar backup</button>
+      <button class="btn-sm" id="cfg-restore-btn">↑ Importar backup</button>
+    </div>
+  </div>
+
+</div>
+```
+
   </div>
 </div><!-- /view-config -->
 
 <!-- ══════════════════════════════════════════════
      VIEW: ESTUDIO
 ══════════════════════════════════════════════ -->
+
 <div id="view-estudio" class="view view-estudio">
   <!-- Populated by spaces.js -->
 </div>
@@ -374,6 +403,7 @@
 <!-- ══════════════════════════════════════════════
      VIEW: CREACIÓN
 ══════════════════════════════════════════════ -->
+
 <div id="view-creacion" class="view view-creacion">
   <!-- Populated by spaces.js -->
 </div>
@@ -381,6 +411,7 @@
 <!-- ══════════════════════════════════════════════
      VIEW: MUNDO
 ══════════════════════════════════════════════ -->
+
 <div id="view-mundo" class="view view-mundo">
   <!-- Populated by spaces.js -->
 </div>
@@ -388,6 +419,7 @@
 <!-- ══════════════════════════════════════════════
      VIEW: LOVESHIP
 ══════════════════════════════════════════════ -->
+
 <div id="view-loveship" class="view view-loveship">
   <!-- Populated by spaces.js -->
 </div>
@@ -395,28 +427,41 @@
 <!-- ══════════════════════════════════════════════
      JS: data & utilities (load first)
 ══════════════════════════════════════════════ -->
+
 <script src="data/defaults.js"></script>
+
 <script src="js/storage.js"></script>
+
 <script src="js/router.js"></script>
 
 <!-- JS: views (order: config first so applyConfig runs early) -->
+
 <script src="js/config.js"></script>
+
 <script src="js/portal.js"></script>
+
 <script src="js/os-home.js"></script>
+
 <script src="js/planner.js"></script>
+
 <script src="js/inbox.js"></script>
+
 <script src="js/proyectos.js"></script>
+
 <script src="js/spaces.js"></script>
+
 <script src="js/pages.js"></script>
+
 <script src="js/journaling.js"></script>
+
 <script src="js/bottombar.js"></script>
+
 <script src="js/claude-assistant.js"></script>
 
-<!-- JS: Optimizations -->
-<script src="js/lazy-loader.js"></script>
-<script src="js/storage-compression.js"></script>
+<script src="js/proyectos-v2.js"></script>
 
 <!-- JS: app (last) -->
+
 <script src="js/app.js"></script>
 
 </body>
