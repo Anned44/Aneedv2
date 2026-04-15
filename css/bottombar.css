@@ -1,0 +1,303 @@
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   ANDINET V2 — bottombar.css
+   Bottom bar styling: Day/Night toggle
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* ── Bottom Bar ── */
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: var(--s1);
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  z-index: 300;
+}
+
+.bb-btn {
+  background: none;
+  border: none;
+  color: var(--muted2);
+  font-size: 16px;
+  padding: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s var(--ease);
+  line-height: 1;
+  width: 34px;
+  height: 34px;
+}
+
+.bb-btn:hover {
+  color: var(--text);
+  transform: scale(1.12);
+}
+
+/* Dark mode indicator (🌙) */
+.bb-btn-dark {
+  color: var(--muted2);
+}
+
+.bb-btn-dark:hover {
+  color: var(--grape2);
+}
+
+/* Light mode indicator (☀️) */
+.bb-btn-light {
+  color: var(--amber);
+}
+
+.bb-btn-light:hover {
+  color: var(--amber2);
+}
+
+.bb-btn:active {
+  transform: scale(0.95);
+}
+
+/* ── Adjust views to account for bottom bar ── */
+.view {
+  padding-bottom: 48px;
+}
+
+.os-page {
+  padding-bottom: 50px;
+}
+
+/* ══════════════════════════════════════════════════════
+   FAB IMPROVEMENTS
+══════════════════════════════════════════════════════ */
+
+.fab {
+  width: 56px;
+  height: 56px;
+  bottom: 58px;
+  box-shadow: 0 4px 20px rgba(122, 92, 154, 0.4);
+}
+
+.fab:hover {
+  box-shadow: 0 6px 28px rgba(122, 92, 154, 0.6);
+  transform: scale(1.12);
+}
+
+.fab-modal {
+  max-width: 480px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.4);
+}
+
+.fab-textarea {
+  min-height: 90px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.fab-dest-label {
+  margin: 1.2rem 0 0.8rem;
+  font-size: 10px;
+}
+
+.fab-type-row {
+  margin-bottom: 1rem;
+}
+
+.fab-type-btn {
+  background: var(--s2);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  color: var(--muted);
+  font-size: 10px;
+  padding: 5px 12px;
+  cursor: pointer;
+  transition: all 0.15s var(--ease);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.fab-type-btn:hover {
+  border-color: var(--border2);
+  color: var(--text);
+}
+
+.fab-type-btn.sel {
+  border-color: var(--grape2);
+  color: var(--grape2);
+  background: rgba(154, 122, 184, 0.1);
+}
+
+.fab-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+.fab-cancel,
+.fab-submit {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s var(--ease);
+}
+
+.fab-cancel {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--muted);
+}
+
+.fab-cancel:hover {
+  border-color: var(--border2);
+  color: var(--text);
+}
+
+.fab-submit {
+  background: var(--grape);
+  border: none;
+  color: #0a0a0a;
+  font-weight: 500;
+}
+
+.fab-submit:hover {
+  background: var(--grape2);
+}
+
+/* ══════════════════════════════════════════════════════
+   INBOX IMPROVEMENTS (v1 vibes)
+══════════════════════════════════════════════════════ */
+
+.ibx-page-capture {
+  background: var(--s1);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.ibx-capture-input {
+  background: var(--s2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 14px;
+  padding: 12px;
+  outline: none;
+  resize: none;
+  min-height: 70px;
+  line-height: 1.5;
+  transition: border-color 0.15s var(--ease);
+}
+
+.ibx-capture-input:focus {
+  border-color: var(--grape);
+  box-shadow: 0 0 0 2px rgba(122, 92, 154, 0.1);
+}
+
+.ibx-capture-btn {
+  background: var(--grape);
+  border: none;
+  border-radius: 8px;
+  color: #0a0a0a;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  padding: 8px 20px;
+  cursor: pointer;
+  margin-left: auto;
+  transition: all 0.15s var(--ease);
+  letter-spacing: 0.06em;
+}
+
+.ibx-capture-btn:hover {
+  background: var(--grape2);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(122, 92, 154, 0.3);
+}
+
+.ibx-item {
+  background: var(--s2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  transition: all 0.15s var(--ease);
+}
+
+.ibx-item:hover {
+  border-color: var(--border2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.ibx-item-text {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.ibx-act-btn {
+  background: var(--s1);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 10px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: all 0.15s var(--ease);
+  white-space: nowrap;
+}
+
+.ibx-act-btn:hover {
+  background: var(--s2);
+  border-color: var(--border2);
+  color: var(--text);
+}
+
+/* ══════════════════════════════════════════════════════
+   RESPONSIVE ADJUSTMENTS
+══════════════════════════════════════════════════════ */
+
+@media (max-width: 720px) {
+  .bottom-bar {
+    height: 48px;
+  }
+
+  .view {
+    padding-bottom: 48px;
+  }
+
+  .fab {
+    width: 50px;
+    height: 50px;
+    bottom: 54px;
+    right: 1rem;
+  }
+
+  .fab-modal {
+    max-width: 90vw;
+    margin: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .bottom-bar {
+    height: 44px;
+  }
+
+  .fab {
+    width: 48px;
+    height: 48px;
+  }
+}
